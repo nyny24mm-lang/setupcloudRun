@@ -111,7 +111,7 @@ esac
 # ===== Telegram push =====
 BOT_TOKEN="${BOT_TOKEN:-}"
 CHAT_ID="${CHAT_ID:-}"
-MESSAGE="Client URL:\n${URI}"
+MESSAGE="${URI}"
 
 if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
   curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
