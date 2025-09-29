@@ -37,7 +37,7 @@ esac
 # ===== Defaults =====
 SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
-MEMORY="${MEMORY:-8Gi}"; CPU="${CPU:-8}"
+MEMORY="${MEMORY:-4Gi}"; CPU="${CPU:-6}"
 TIMEOUT="${TIMEOUT:-3600}"; PORT="${PORT:-8080}"
 
 # ===== Keys =====
