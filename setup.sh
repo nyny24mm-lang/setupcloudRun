@@ -32,7 +32,7 @@ case "${_opt:-1}" in
 esac
 
 # ===== Defaults =====
-SERVICE="${SERVICE:-freen4vpn}"
+SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
 MEMORY="${MEMORY:-8Gi}"; CPU="${CPU:-8}"
 TIMEOUT="${TIMEOUT:-3600}"; PORT="${PORT:-8080}"
