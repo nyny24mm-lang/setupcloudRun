@@ -19,17 +19,20 @@ PROJECT_NUMBER="$(gcloud projects describe "$PROJECT" --format='value(projectNum
 echo -e "✅ Using project: ${GREEN}${PROJECT}${NC} (number: ${PROJECT_NUMBER})"
 
 # ===== Choose protocol =====
+# ===== Choose protocol =====
 echo
 echo -e "${BOLD}Choose protocol:${NC}"
 echo "  1) Trojan (WS)"
 echo "  2) VLESS  (WS)"
 echo "  3) VLESS  (gRPC)"
-read -rp "Enter 1/2/3 [default: 1]: " _opt || true
-case "${_opt:-1}" in
-  2) PROTO="vless"     ; IMAGE="docker.io/n4vip/vless:latest" ;;
-  3) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:v2" ;;
-  *) PROTO="trojan"    ; IMAGE="docker.io/nynyjk/xray-tg:latest" ;;
+read -rp "Enter 1/2/3 [default: 3]: " _opt || true
+case "${_opt:-3}" in
+  1) PROTO="trojan"    ; IMAGE="docker.io/nynyjk/xray-tg:latest"          ;;
+  2) PROTO="vless"     ; IMAGE="docker.io/n4vip/vless:latest"             ;;
+  3) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:v2"  ;;
+  *) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:v2"  ;;
 esac
+
 
 # ===== Defaults =====
 SERVICE="${SERVICE:-netflow4mm}"
@@ -39,8 +42,8 @@ TIMEOUT="${TIMEOUT:-3600}"; PORT="${PORT:-8080}"
 
 # ===== Keys =====
 TROJAN_PASS="netflow4mm"
-TROJAN_TAG="N4%20GCP%20Hour%20Key"
-TROJAN_PATH="%2F%40n4vpn"  # /@n4vpn
+TROJAN_TAG="netflow4mm"
+TROJAN_PATH="%2Ftj" # /@n4vpn
 
 VLESS_UUID="0c890000-4733-b20e-067f-fc341bd20000"
 VLESS_PATH="%2FN4VPN"      # /N4VPN
