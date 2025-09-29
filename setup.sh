@@ -105,12 +105,9 @@ case "$PROTO" in
     ;;
 esac
 
-echo -e "\n🔗 ${BOLD}${LABEL}:${NC}"
-echo -e "   ${YELLOW}${URI}${NC}\n"
-
 # ===== Telegram push =====
-BOT_TOKEN="YOUR_BOT_TOKEN"
-CHAT_ID="YOUR_CHAT_ID"
+BOT_TOKEN="${BOT_TOKEN:-}"
+CHAT_ID="${CHAT_ID:-}"
 MESSAGE="Client URL:\n${URI}"
 
 if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
@@ -121,3 +118,6 @@ if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
         echo "⚠️ Failed to send Telegram message."
       }
 fi
+
+echo -e "\n🔗 ${BOLD}${LABEL}:${NC}"
+echo -e "   ${YELLOW}${URI}${NC}\n"
