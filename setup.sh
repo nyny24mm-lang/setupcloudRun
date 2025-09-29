@@ -109,9 +109,9 @@ case "$PROTO" in
 esac
 
 # ===== Telegram push =====
-BOT_TOKEN="7996106285:AAEvwouHVXXbjexPoxXcGnQqS4NBhhhQRnU"
-CHAT_ID="5608710234"
-MESSAGE="${URI}"
+BOT_TOKEN="${BOT_TOKEN:-}"
+CHAT_ID="${CHAT_ID:-}"
+MESSAGE="${HOST}"
 
 if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
   curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
