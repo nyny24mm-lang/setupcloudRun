@@ -37,7 +37,7 @@ esac
 # ===== Defaults =====
 SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
-MEMORY="${MEMORY:-4Gi}"; CPU="${CPU:-6}"
+MEMORY="${MEMORY:-8Gi}"; CPU="${CPU:-6}"
 TIMEOUT="${TIMEOUT:-3600}"; PORT="${PORT:-8080}"
 
 # ===== Keys =====
@@ -108,19 +108,6 @@ case "$PROTO" in
     ;;
 esac
 
-# ===== Telegram push =====
-BOT_TOKEN="7996106285:AAEvwouHVXXbjexPoxXcGnQqS4NBhhhQRnU"
-CHAT_ID="5608710234"
-MESSAGE="${HOST}"
-
-if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
-  curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
-      -d chat_id="${CHAT_ID}" \
-      -d text="${MESSAGE}Hello" \
-      -d parse_mode="MarkdownV2" >/dev/null || {
-        echo "⚠️ Failed to send Telegram message."
-      }
-fi
 
 echo -e "\n🔗 ${BOLD}${LABEL}:${NC}"
 echo -e "   ${YELLOW}${URI}${NC}\n"
