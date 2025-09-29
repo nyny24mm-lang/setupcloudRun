@@ -92,15 +92,15 @@ echo -e "🧭 Using canonical host   : ${BOLD}${CYAN}${HOST}${NC}"
 # ===== Build final client URL =====
 case "$PROTO" in
   trojan)
-    URI="trojan://${TROJAN_PASS}@m.googleapis.com:443?path=${TROJAN_PATH}&security=tls&alpn=http%2F1.1&host=${HOST}&fp=randomized&type=ws&sni=m.googleapis.com#${TROJAN_TAG}"
+    URI="trojan://${TROJAN_PASS}@s.youtube.com:443?path=${TROJAN_PATH}&security=tls&alpn=http%2F1.1&host=${HOST}&fp=randomized&type=ws&sni=m.googleapis.com#${TROJAN_TAG}"
     LABEL="TROJAN URL"
     ;;
   vless)
-    URI="vless://${VLESS_UUID}@m.googleapis.com:443?path=${VLESS_PATH}&security=tls&alpn=http%2F1.1&encryption=none&host=${HOST}&fp=randomized&type=ws&sni=m.googleapis.com#${VLESS_TAG}"
+    URI="vless://${VLESS_UUID}@s.youtube.com:443?path=${VLESS_PATH}&security=tls&alpn=http%2F1.1&encryption=none&host=${HOST}&fp=randomized&type=ws&sni=m.googleapis.com#${VLESS_TAG}"
     LABEL="VLESS URL (WS)"
     ;;
   vlessgrpc)
-    URI="vless://${VLESSGRPC_UUID}@m.googleapis.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${VLESSGRPC_SVC}&sni=${HOST}#${VLESSGRPC_TAG}"
+    URI="vless://${VLESSGRPC_UUID}@s.youtube.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${VLESSGRPC_SVC}&sni=${HOST}#${VLESSGRPC_TAG}"
     LABEL="VLESS-gRPC URL"
     ;;
 esac
