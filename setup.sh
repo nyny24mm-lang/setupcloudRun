@@ -150,7 +150,7 @@ if [[ -n "${TELEGRAM_TOKEN:-}" && -n "${TELEGRAM_CHAT_ID:-}" ]]; then
 <b>✅ Cloud Run Deploy Success</b>
 <b>Service:</b> ${SERVICE}
 <b>Region:</b> ${REGION}
-<b>URL:</b> ${URL_CANONICA}
+<b>URL:</b> ${URL_CANONICAL}
 
 <pre><code>${URI}</code></pre>
 EOF
