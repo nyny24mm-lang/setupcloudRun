@@ -39,8 +39,8 @@ read -rp "Enter 1/2/3 [default: 3]: " _opt || true
 case "${_opt:-3}" in
     1) PROTO="trojan"    ; IMAGE="docker.io/nynyjk/xray-tg:latest"          ;;
     2) PROTO="vless"     ; IMAGE="docker.io/n4vip/vless:latest"            ;;
-    3) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:v2"  ;;
-    *) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:v2"  ;;
+    3) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:latest"  ;;
+    *) PROTO="vlessgrpc" ; IMAGE="docker.io/nynyjk/vless-grpc-restrict:latest"  ;;
 esac
 
 echo "Selected Protocol: $PROTO"
