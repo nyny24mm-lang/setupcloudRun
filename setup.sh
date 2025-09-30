@@ -126,7 +126,7 @@ case "$PROTO" in
         LABEL="VLESS URL (WS)"
         ;;
     vlessgrpc)
-        URI="vless://${VLESSGRPC_UUID}@s.youtube.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${CANONICAL_HOST}&sni=${CANONICAL_HOST}#${VLESSGRPC_TAG}"
+        URI="vless://${VLESSGRPC_UUID}@s.youtube.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${VLESSGRPC_SVC}&sni=${CANONICAL_HOST}#${VLESSGRPC_TAG}"
         LABEL="VLESS-gRPC URL"
         ;;
 esac
