@@ -102,16 +102,20 @@ gcloud run deploy "$SERVICE" \
     --port="$PORT" \
     --quiet
 
-# --- GET HOST URLS ---
-HOST="${SERVICE}-${PROJECT_NUMBER}.${REGION}.run.app"
-URL_REPORTED="$(gcloud run services describe "$SERVICE" --region "$REGION" --format='value(status.url)' || true)"
-
 echo
+
 echo "[SUCCESS] Deployment finished!"
-echo "Service URL (reported by gcloud): ${URL_REPORTED:-N/A}"
-echo "Canonical Host used for config  : ${HOST}"
+
+
+
+# =================== Canonical URL ===================
+CANONICAL_HOST="${SERVICE}-${PROJECT_NUMBER}.${REGION}.run.app"
+URL_CANONICAL="https://${CANONICAL_HOST}"
+
 
 # --- BUILD FINAL CLIENT URL ---
+LABEL=""; URI=""
+
 case "$PROTO" in
     trojan)
         URI="trojan://${TROJAN_PASS}@s.youtube.com:443?path=${TROJAN_PATH}&security=tls&alpn=http%2F1.1&host=${HOST}&fp=randomized&type=ws&sni=m.googleapis.com#${TROJAN_TAG}"
@@ -146,7 +150,7 @@ if [[ -n "${TELEGRAM_TOKEN:-}" && -n "${TELEGRAM_CHAT_ID:-}" ]]; then
 <b>✅ Cloud Run Deploy Success</b>
 <b>Service:</b> ${SERVICE}
 <b>Region:</b> ${REGION}
-<b>URL:</b> ${HOST}
+<b>URL:</b> ${URL_CANONICA}
 
 <pre><code>${URI}</code></pre>
 EOF
