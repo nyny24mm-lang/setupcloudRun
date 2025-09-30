@@ -142,8 +142,6 @@ TELEGRAM_CHAT_ID="5608710234"
 echo "--- Telegram Notification ---"
 # Check if both required variables are set
 if [[ -n "${TELEGRAM_TOKEN:-}" && -n "${TELEGRAM_CHAT_ID:-}" ]]; then
-    
-    # Use the 'HOST' variable for the canonical URL
     # Create the HTML message content using a HERE-document
     HTML_MSG=$(
         cat <<EOF
