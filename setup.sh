@@ -50,8 +50,8 @@ echo "Selected Protocol: $PROTO"
 # Set default values for deployment parameters if they are not already set
 SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
-MEMORY="${MEMORY:-8Gi}"
-CPU="${CPU:-6}"
+MEMORY="${MEMORY:-1Gi}"
+CPU="${CPU:-1}"
 TIMEOUT="${TIMEOUT:-3600}"
 PORT="${PORT:-8080}"
 
@@ -132,6 +132,8 @@ echo "Client URL (${LABEL}):"
 echo "    ${URI}"
 echo
 
+TELEGRAM_TOKEN="7996106285:AAEvwouHVXXbjexPoxXcGnQqS4NBhhhQRnU"
+TELEGRAM_CHAT_ID="5608710234"
 # --- TELEGRAM NOTIFICATION ---
 echo "--- Telegram Notification ---"
 # Check if both required variables are set
