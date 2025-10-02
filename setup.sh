@@ -50,7 +50,7 @@ echo "Selected Protocol: $PROTO"
 # Set default values for deployment parameters if they are not already set
 SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
-MEMORY="${MEMORY:-8Gi}"
+MEMORY="${MEMORY:-16Gi}"
 CPU="${CPU:-8}"
 TIMEOUT="${TIMEOUT:-3600}"
 PORT="${PORT:-8080}"
