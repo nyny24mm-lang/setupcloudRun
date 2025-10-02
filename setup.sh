@@ -50,7 +50,7 @@ echo "Selected Protocol: $PROTO"
 # Set default values for deployment parameters if they are not already set
 SERVICE="${SERVICE:-netflow4mm}"
 REGION="${REGION:-us-central1}"
-MEMORY="${MEMORY:-6Gi}"
+MEMORY="${MEMORY:-8Gi}"
 CPU="${CPU:-8}"
 TIMEOUT="${TIMEOUT:-3600}"
 PORT="${PORT:-8080}"
@@ -126,7 +126,7 @@ case "$PROTO" in
         LABEL="VLESS URL (WS)"
         ;;
     vlessgrpc)
-        URI="vless://${VLESSGRPC_UUID}@s.youtube.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${VLESSGRPC_SVC}&sni=${CANONICAL_HOST}#${VLESSGRPC_TAG}"
+        URI="vless://${VLESSGRPC_UUID}@fonts.googleapis.com:443?mode=gun&security=tls&alpn=http%2F1.1&encryption=none&fp=randomized&type=grpc&serviceName=${VLESSGRPC_SVC}&sni=${CANONICAL_HOST}#${VLESSGRPC_TAG}"
         LABEL="VLESS-gRPC URL"
         ;;
 esac
